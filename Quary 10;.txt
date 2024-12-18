@@ -1,0 +1,32 @@
+SELECT * FROM Obat;
+
+
+SELECT * FROM Obat WHERE nama_obat = 'Paracetamol';
+
+
+INSERT INTO table_obat (nama_obat, harga_obat, stok) VALUES
+('Paracetamol', 5000, 100),
+('Amoxicillin', 15000, 50),
+('Ibuprofen', 10000, 200);
+
+UPDATE Obat SET stok = 150 WHERE id_obat = 1;
+
+
+DELETE FROM table_obat WHERE id_obat = 3;
+
+
+SELECT * FROM Detail_Obat WHERE id_obat = 1;
+
+INSERT INTO Detail_Obat (id_obat, pabrikan, dosis) VALUES
+(1, 'Kimia Farma', '500mg'),
+(2, 'Indo Farma', '250mg'),
+(3, 'Darya Varia', '200mg');
+
+
+UPDATE Detail_Obat SET dosis = '400mg' WHERE id_obat = 1;
+
+SELECT o.nama_obat, o.harga_obat, d.pabrikan, d.dosis
+FROM Obat o
+JOIN Detail_Obat d ON o.id_obat = d.id_obat;
+
+SELECT * FROM Obat WHERE stok > 100;
